@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Feliz Cumpleaños Karime</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Open Sans', sans-serif;
+      background: linear-gradient(to bottom, #1e1e2f, #2c2c44);
+      color: #eee;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 720px;
+      margin: 5vh auto;
+      background: rgba(30,30,47,0.95);
+      padding: 3rem;
+      border-radius: 20px;
+      box-shadow: 0 0 25px rgba(255,100,120,0.2);
+      position: relative;
+      z-index: 10;
+    }
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3.8rem;
+      color: #f76c6c;
+      text-align: center;
+      margin-bottom: 1rem;
+      animation: pulse 3s ease-in-out infinite;
+    }
+    p {
+      font-size: 1.2rem;
+      line-height: 1.7;
+      text-align: center;
+      color: #ddd;
+    }
+    .firma {
+      text-align: right;
+      font-style: italic;
+      margin-top: 2rem;
+      color: #ccc;
+    }
+    @keyframes pulse {
+      0%,100% { text-shadow: 0 0 10px #f76c6c; }
+      50% { text-shadow: 0 0 25px #ff9ea7; }
+    }
+    .gallery {
+      margin-top: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+    }
+    .gallery img {
+      width: 160px;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+      transition: transform 0.4s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+    .gallery img:hover {
+      transform: scale(1.1);
+      box-shadow: 0 8px 25px rgba(255,100,120,0.6);
+    }
+    audio {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      z-index: 999;
+      background: rgba(44,44,68,0.85);
+      border: 1px solid #f76c6c;
+      border-radius: 10px;
+      padding: 6px 12px;
+      box-shadow: 0 0 15px rgba(255,100,120,0.3);
+    }
+    .heart {
+      position: fixed;
+      width: 18px;
+      height: 18px;
+      background: rgba(255,100,120,0.4);
+      transform: rotate(-45deg);
+      left: 50%;
+      bottom: 0;
+      opacity: 0.5;
+      animation: floatUp 8s infinite ease-in-out;
+    }
+    .heart::before, .heart::after {
+      content: "";
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      background: inherit;
+      border-radius: 50%;
+    }
+    .heart::before { top: -9px; left: 0; }
+    .heart::after { top: 0; left: 9px; }
+    @keyframes floatUp {
+      0% { transform: translateY(0) rotate(-45deg); opacity: 0.5; }
+      100% { transform: translateY(-800px) rotate(-45deg); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Feliz Cumpleaños, Kari🎉</h1>
+  <p>Hermosa, hoy celebro tu existencia, tu ternura y esa magia que haces florecer en mi vida.</p>
+  <p>Gracias por cada sonrisa, por cada instante que compartimos. Este día es solo una excusa más para recordarte lo mucho que significas para mí.</p>
+  <p>Que esta vuelta al sol esté llena de bendiciones, amor y sueños cumplidos. ¡Te amo infinitamente!</p>
+  <div class="firma">Con todo mi amor Saulin</div>
+  <div class="gallery">
+    <img src="img/foto.jpg" alt="Karime 1">
+    <img src="img/foto1.webp" alt="Karime 2">
+    <img src="img/foto2.webp" alt="Karime 3">
+  </div>
+</div>
+
+<script>
+  const colors = ['rgba(255,100,120,0.4)', 'rgba(255,170,190,0.3)', 'rgba(255,130,150,0.3)'];
+  function createHeart() {
+    const heart=document.createElement('div');
+    heart.className='heart';
+    const size = Math.random()*18+10;
+    heart.style.width=heart.style.height=size+'px';
+    heart.style.left=Math.random()*window.innerWidth+'px';
+    heart.style.animationDuration=(6+Math.random()*4)+'s';
+    heart.style.backgroundColor=colors[Math.floor(Math.random()*colors.length)];
+    document.body.appendChild(heart);
+    setTimeout(()=>heart.remove(),9000);
+  }
+  setInterval(createHeart,400);
+</script>
+
+</body>
+</html>
